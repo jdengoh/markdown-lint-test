@@ -1,0 +1,24 @@
+name: Frontend Linting
+
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+      - frontend
+      - backend
+    paths:
+      - "app/frontend/**"
+
+jobs:
+  prettier:
+    name: Run Prettier (Frontend)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run prettier on frontend
+        run: |
+          cd ./app/frontend
+          npm install
+          npm install -g prettier
+          npm run lint

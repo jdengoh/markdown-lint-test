@@ -1,0 +1,10 @@
+dirs:
+  - ./
+
+ignorePatterns:
+  - pattern: "^https://github.com/0Upjh80d/healthhub-content-optimization/.*$"
+  - pattern: "^https://technical-docs-ddfre4b9ebbbaza8.scm.southeastasia-01.azurewebsites.net/.*$"
+  - pattern: "^https://platform.openai.com.*$"
+  - pattern: "^http://localhost.*$"
+  - pattern: "^../.*#.*$" # Ignore anchor links as there are bugs in the linkspector
+  - pattern: "^#.*$" # Ignore anchor links as there are bugs in the linkspector

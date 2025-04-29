@@ -1,0 +1,56 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+    target-branch: "staging"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/app/frontend"
+    schedule:
+      interval: "weekly"
+    target-branch: "staging"
+    ignore:
+      - dependency-name: "zone.js"
+      - dependency-name: "@angular/core"
+      - dependency-name: "@angular/cli"
+      - dependency-name: "@angular/cdk"
+      - dependency-name: "primeng"
+      - dependency-name: "@angular/compiler"
+      - dependency-name: "@angular/router"
+      - dependency-name: "tailwindcss"
+      - dependency-name: "@angular/platform-browser-dynamic"
+      - dependency-name: "@angular/service-worker"
+      - dependency-name: "@angular-devkit/build-angular"
+
+  # Maintain dependencies for pip
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    target-branch: "staging"
+    groups:
+      python-requirements:
+        patterns:
+          - "*"
+    ignore:
+      - dependency-name: azure-search-documents
+      - dependency-name: fixedint
+      - dependency-name: psutil
+      - dependency-name: portalocker
+      - dependency-name: httpx
+      - dependency-name: importlib-metadata
+      - dependency-name: pydantic-core
+      - dependency-name: deepeval
